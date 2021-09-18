@@ -22,7 +22,11 @@ const position = [37.1, -95.7];
 function LeafletgeoSearch() {
   const map = useMap();
   useEffect(() => {
-    const provider = new OpenStreetMapProvider();
+    const provider = new OpenStreetMapProvider({
+      params: {
+        countrycodes: 'us', //restrict search results to US
+      },
+    });
 
     const searchControl = new GeoSearchControl({
       provider,
