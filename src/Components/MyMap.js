@@ -1,10 +1,13 @@
-import React, { Component, useEffect } from 'react';
+import React, { Component, useEffect, useState } from 'react';
 import {
   MapContainer,
   TileLayer,
   GeoJSON,
   LayersControl,
   useMap,
+  Marker,
+  Popup,
+  useMapEvents,
 } from 'react-leaflet';
 import countyData from './Data/countyBuyouts.json';
 import regionData from './Data/regionalBuyouts.json';
@@ -14,11 +17,33 @@ import L from 'leaflet';
 import { GeoSearchControl, OpenStreetMapProvider } from 'leaflet-geosearch';
 import 'leaflet/dist/leaflet.css';
 import 'leaflet-geosearch/dist/geosearch.css';
-import icon from "./constants";
+import icon from './constants';
 
 const position = [37.1, -95.7];
 
+// myLocation on click event
+
+function LocationMarker() {
+  const [position, setPosition] = useState(null);
+  const map = useMapEvents({
+    click() {
+      map.locate();
+    },
+    locationfound(e) {
+      setPosition(e.latlng);
+      map.flyTo(e.latlng, map.getZoom());
+    },
+  });
+
+  return position === null ? null : (
+    <Marker position={position} icon={icon}>
+      <Popup>My Location</Popup>
+    </Marker>
+  );
+}
+
 // leaflet geosearch search bar
+
 function LeafletgeoSearch() {
   const map = useMap();
   useEffect(() => {
@@ -29,10 +54,11 @@ function LeafletgeoSearch() {
     });
 
     const searchControl = new GeoSearchControl({
-      provider,
-      marker: {
-       icon,
-      },
+      provider, 
+      showMarker: false,
+      // marker: {
+      //  icon,
+      // },
     });
 
     map.addControl(searchControl);
@@ -277,6 +303,7 @@ class MyMap extends Component {
             </LayersControl.Overlay>
           </LayersControl>
           <LeafletgeoSearch />
+          <LocationMarker />
         </MapContainer>
       </div>
     );
