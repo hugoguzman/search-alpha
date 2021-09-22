@@ -8,7 +8,6 @@
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^12.8.3",
     "aws-amplify": "^4.2.9",
-    "bootstrap": "^5.1.1",
     "chroma-js": "^2.1.2",
     "leaflet": "^1.7.1",
     "leaflet-geosearch": "^3.5.0",
@@ -36,5 +35,6 @@
     ">0.2%",
     "not dead",
     "not op_mini all"
-  ]
+  ],
+  "devDependencies": {}
 }
