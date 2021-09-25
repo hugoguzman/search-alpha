@@ -10,7 +10,6 @@ import AddIcon from '@mui/icons-material/Add';
 import SearchIcon from '@mui/icons-material/Search';
 import MoreIcon from '@mui/icons-material/MoreVert';
 
-
 export default function BottomAppBar() {
   return (
     <React.Fragment>
@@ -22,10 +21,15 @@ export default function BottomAppBar() {
             <AddIcon />
           </StyledFab> */}
           <Box sx={{ flexGrow: 1 }} />
-          <IconButton color='inherit'>
+          {/* <IconButton color='inherit'>
             <SearchIcon />
-          </IconButton>
-          <IconButton color='inherit'>
+          </IconButton> */}
+          <IconButton
+            color='inherit'
+            onClick={() => {
+              console.log('clicked'); //function for more button bottom app bar
+            }}
+          >
             <MoreIcon />
           </IconButton>
         </Toolbar>

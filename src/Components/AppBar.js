@@ -18,6 +18,9 @@ export default function DenseAppBar() {
             color='inherit'
             aria-label='menu'
             sx={{ mr: 2 }}
+            onClick={() => {
+              console.log('clicked'); //function for menu button top app bar
+            }}
           >
             <MenuIcon />
           </IconButton>
