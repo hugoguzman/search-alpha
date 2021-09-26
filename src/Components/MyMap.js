@@ -202,11 +202,10 @@ class MyMap extends Component {
   render() {
     return (
       <div>
-        <h1 style={{ textAlign: 'center' }}>FEMA Buyouts by County</h1>
         <MapContainer
           center={position}
           zoom={4}
-          style={{ height: 900, width: '100%' }}
+          style={{ height: 750 , width: '100%' }}
         >
           <TileLayer
             attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>'

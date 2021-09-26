@@ -1,16 +1,17 @@
 import React from 'react';
 import './App.css';
 import MyMap from './Components/MyMap' 
-import DenseAppBar from './Components/AppBar';
 import BottomAppBar from './Components/BottomAppBar';
-
+import ButtonAppBar from './Components/AppBar';
 
 function App() {
   return (
     <div className="App">
-      <DenseAppBar />
+      <ButtonAppBar />
+      <div className="container">
       <MyMap />
-      <BottomAppBar />
+      </div>
+      <BottomAppBar />  
     </div>
   );
 }
