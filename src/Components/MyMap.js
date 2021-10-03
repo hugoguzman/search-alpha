@@ -1,4 +1,4 @@
-import React, { Component, useEffect, useState } from 'react';
+import React, { Component } from 'react';
 import { MapContainer, TileLayer, GeoJSON, LayersControl } from 'react-leaflet';
 import countyData from './Data/countyBuyouts.json';
 import regionData from './Data/regionalBuyouts.json';
@@ -6,8 +6,8 @@ import muniData from './Data/munigeojson.json';
 import tribalData from './Data/tribalgeojson.json';
 import L from 'leaflet';
 import LeafletgeoSearch from './GeoSearch';
-import LocationMarker from './myLocation';
-
+// import LocationMarker from './myLocation';
+import ResetButton from './ResetButton';
 
 const position = [37.1, -95.7];
 
@@ -205,7 +205,7 @@ class MyMap extends Component {
         <MapContainer
           center={position}
           zoom={4}
-          style={{ height: 750 , width: '100%' }}
+          style={{ height: 750, width: '100%' }}
         >
           <TileLayer
             attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>'
@@ -244,7 +244,8 @@ class MyMap extends Component {
             </LayersControl.Overlay>
           </LayersControl>
           <LeafletgeoSearch />
-          <LocationMarker />
+          {/* <LocationMarker /> */}
+          <ResetButton title={'Reset'} position={[37.1, -95.7]} zoom={4} />
         </MapContainer>
       </div>
     );

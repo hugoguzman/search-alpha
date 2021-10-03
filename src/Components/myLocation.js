@@ -7,14 +7,13 @@ function LocationMarker() {
   const [position, setPosition] = useState(null);
   const map = useMapEvents({
     click() {
-      map.locate();
+      map.locate()
     },
     locationfound(e) {
       setPosition(e.latlng);
       map.flyTo(e.latlng, map.getZoom());
     },
   });
-
   return position === null ? null : (
     <Marker position={position} icon={icon}>
       <Popup>My Location</Popup>
