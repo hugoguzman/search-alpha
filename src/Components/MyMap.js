@@ -8,11 +8,13 @@ import L from 'leaflet';
 import LeafletgeoSearch from './GeoSearch';
 // import LocationMarker from './myLocation';
 import ResetButton from './ResetButton';
+import LocateButton from './LocateButton';
 
 const position = [37.1, -95.7];
 
 //const muniDataArray = Array.from(muniData);
 class MyMap extends Component {
+  
   state = {};
 
   componentDidMount() {
@@ -245,6 +247,7 @@ class MyMap extends Component {
           </LayersControl>
           <LeafletgeoSearch />
           {/* <LocationMarker /> */}
+          <LocateButton title={'My Location'} />
           <ResetButton title={'Reset'} position={[37.1, -95.7]} zoom={4} />
         </MapContainer>
       </div>

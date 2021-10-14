@@ -15,7 +15,7 @@ function LocationMarker() {
     },
   });
   return position === null ? null : (
-    <Marker position={position} icon={icon}>
+    <Marker position={Position} icon={icon}>
       <Popup>My Location</Popup>
     </Marker>
   );
