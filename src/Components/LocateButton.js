@@ -3,10 +3,10 @@ import { useMap } from 'react-leaflet';
 import L from 'leaflet';
 
 class LocateButton extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { position: null };
-  }
+  // constructor(props) {
+  //   super(props);
+  //   this.state = { position: null };
+  // }
   helpDiv;
 
   createButtonControl() {
